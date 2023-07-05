@@ -6,7 +6,8 @@ import retrofit2.http.Query
 interface NewsApi {
     @GET("articlesearch.json")
     suspend fun getArticles(
-        @Query("page") page : Int
+        @Query("page") page : Int,
+        @Query("api-key") apiKey : String = "pf6FgeMTQXi38BAFb9voVvHtrEQlwUlp"
     ) : ArticleResponseDto
 
 

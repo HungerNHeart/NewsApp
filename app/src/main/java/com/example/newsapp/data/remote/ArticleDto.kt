@@ -18,7 +18,8 @@ data class ArticleDto(
     @SerializedName("byline")
     val articleByLine : ArticleByLineDto? = null,
     @SerializedName("web_url")
-    val webUrl : String
+    val webUrl : String,
+    val multimedia : List<ArticleMultiMediaDto>? = null
 )
 
 data class ArticleHeadlineDto(

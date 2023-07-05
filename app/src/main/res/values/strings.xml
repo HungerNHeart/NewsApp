@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NEWS App</string>
+    <string name="read_in_min">%s min read</string>
 </resources>

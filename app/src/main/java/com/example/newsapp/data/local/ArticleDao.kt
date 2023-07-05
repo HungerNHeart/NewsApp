@@ -2,19 +2,20 @@ package com.example.newsapp.data.local
 
 import androidx.paging.PagingSource
 import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import androidx.room.Upsert
 
 @Dao
 interface ArticleDao {
 
-    @Upsert
-    suspend fun upsetAll(articles : List<ArticleEntity>)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAll(articles : ArrayList<ArticleEntity>)
 
     @Query("SELECT * FROM Articles")
-    suspend fun getAllArticles() : PagingSource<Int, ArticleEntity>
+    fun getAllArticles() : PagingSource<Int, ArticleEntity>
 
     @Query("DELETE FROM Articles")
-    suspend fun clearAllArticles()
+    fun clearAllArticles()
 
 }
